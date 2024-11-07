@@ -21,7 +21,7 @@ local Tabs = {
     Genaral = Window:AddTab({ Title = "Genaral Tab", Icon = "rbxassetid://11433532654" }),
     Avatar = Window:AddTab({ Title = "Avatar Tab",Icon = "shirt" }),
     Player = Window:AddTab({ Title = "Player",Icon = "user" }),
-    Teleport = Window:AddTab({ Title = "Teleport",Icon = "warp" }),
+    Teleport = Window:AddTab({ Title = "Teleport",Icon = "door" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
