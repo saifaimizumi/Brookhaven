@@ -172,24 +172,7 @@ spawn(function()
     end
 end)
 
-local Dropdown = Tabs.Teleport:AddDropdown("Dropdown", {
-    Title = "Select Place",
-    Values = {"Spawn", "Subway", "Coffee", "CementBuilding", "Club", "Plane", "Church", "Airport", "Police, "CHildCare", "School", "Carwash", "Motel", "AgencyPool", "Yacht", "Cabin"},
-    Multi = false,
-    Default = 1,
-})
 
-Dropdown:OnChanged(function(Value)
-    Place = Value
-end)
-
-Tabs.Teleport:AddButton({
-    Title = "Teleport",
-    Description = "",
-    Callback = function()
-    TeleportToPlace(Dropdown.Value)
-    end
-})
 
 
 
