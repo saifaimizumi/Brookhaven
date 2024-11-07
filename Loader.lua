@@ -1,5 +1,39 @@
 --lyxme Hub
-
+function TeleportToPlace(Place)
+    if Place == "Spawn" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1.47872591, 3.2980268, 12.920928, -0.130765319, 3.29837455e-08, -0.991413355, 9.6493622e-09, 1, 3.1996688e-08, 0.991413355, -5.38245004e-09, -0.130765319)
+    elseif Place == "Subway" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(50.600769, -12.5530424, 56.7129555, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Coffee" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(156.481567, 15.290041, 35.5562515, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "CementBuilding" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-80.4957581, -6.35995483, 259.231842, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Club" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(185.138092, 26.2499943, -180.177734, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Plane" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(465.365082, -106.600021, 117.17836, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Church" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66.611908, 40.6999855, -192.577744, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Airport" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(310.838959, 14.3999968, 53.5641975, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Police" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-80.412178, 30.044632, 27.2221699, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "CHildCare" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-132.412186, 14.7700405, 114.882195, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "School" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-346.612518, 22.9000282, 251.472137, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Carwash" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(245.13765, 8.09999084, -296.677643, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Motel" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(159.088257, 3.39802194, 212.383179, 0.700654268, -1.81963475e-08, -0.713500917, 4.44143566e-09, 1, -2.11414406e-08, 0.713500917, 1.16438725e-08, 0.700654268)
+    elseif Place == "AgencyPool" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-53.874279, -21.3401012, 110.148872, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Yacht" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-124.410553, 16.7000046, 856.409302, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    elseif Place == "Cabin" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-269.829865, 10.7892895, 1105.65161, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    end
+end
 
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -173,7 +207,16 @@ spawn(function()
 end)
 
 
+local Dropdown = Tabs.Teleport:AddDropdown("Dropdown", {
+    Title = "Select Place",
+    Values = {"Spawn", "Subway", "Coffee", "CementBuilding", "Club", "Plane", "Church", "Airport", "Police," "CHildCare", "School", "Carwash", "Motel", "AgencyPool", "Yacht", "Cabin"},
+    Multi = false,
+    Default = 1,
+})
 
+Dropdown:OnChanged(function(Value)
+    Place = Value
+end)
 
 
     Tabs.Settings:AddButton({
