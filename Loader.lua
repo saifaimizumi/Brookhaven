@@ -89,8 +89,8 @@ Tabs.Genaral:AddButton({
     })
 
 local Dropdown = Tabs.Players:AddDropdown("Dropdown", {
-    Title = "Select Players",
-    Values = {" "},
+    Title = "Select Players", players,
+    Values = {""},
     Multi = false,
     Default = 1,
 })
@@ -99,7 +99,7 @@ Dropdown:OnChanged(function(Value)
    Select = Value
 end)
 
-Tabs.Team:AddButton({
+Tabs.Players:AddButton({
     Title = "Teleport to Players",
     Description = "",
     Callback = function()
