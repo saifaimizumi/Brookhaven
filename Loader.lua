@@ -86,7 +86,7 @@ Tabs.Genaral:AddButton({
     })
 
 
-Options.PlayerSelect = Tabs.Player:AddDropdown("PlayerSelect", {
+Options.PlayerSelect = Tabs.Players:AddDropdown("PlayerSelect", {
     Title = "Select Player",
     Values = {},
     Multi = false,
@@ -96,7 +96,7 @@ Options.PlayerSelect = Tabs.Player:AddDropdown("PlayerSelect", {
     end
 })
 
-Tabs.Player:AddButton({
+Tabs.Players:AddButton({
     Title = "Refresh Player List",
     Callback = UpdatePlayerList
 })
