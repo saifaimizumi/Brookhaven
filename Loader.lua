@@ -1,5 +1,7 @@
 --lyxme Hub | Brookhaven
 
+ 
+
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
@@ -38,7 +40,7 @@ local Slider = Tabs.Genaral:AddSlider("Slider", {
     Description = "",
     Default = 20,
     Min = 0,
-    Max = 1000000,
+    Max = 500,
     Rounding = 0,
     Callback = function(Value)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
@@ -58,7 +60,7 @@ local Slider = Tabs.Genaral:AddSlider("Slider", {
     Description = "",
     Default = 50,
     Min = 15,
-    Max = 1000000,
+    Max = 500,
     Rounding = 0,
     Callback = function(Value)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
