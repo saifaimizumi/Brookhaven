@@ -1,7 +1,5 @@
 --lyxme Hub | Brookhaven
-local selectedPlayer = ""
-local currentPlayerList = {}
-local Options = {}
+
  
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -86,20 +84,7 @@ Tabs.Genaral:AddButton({
     })
 
 
-Options.PlayerSelect = Tabs.Players:AddDropdown("PlayerSelect", {
-    Title = "Select Player",
-    Values = {},
-    Multi = false,
-    Default = "",
-    Callback = function(Value)
-        selectedPlayer = Value
-    end
-})
 
-Tabs.Players:AddButton({
-    Title = "Refresh Player List",
-    Callback = UpdatePlayerList
-})
 
     Tabs.Settings:AddButton({
         Title = "rejoin server",
