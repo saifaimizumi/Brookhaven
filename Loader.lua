@@ -1,5 +1,7 @@
 --lyxme Hub | Brookhaven
-
+local selectedPlayer = ""
+local currentPlayerList = {}
+local Options = {}
  
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -12,7 +14,7 @@ local Window = Fluent:CreateWindow({
     TabWidth = 160,
     Size = UDim2.fromOffset(510, 390),
     Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Amethystr",
+    Theme = "Amethyst",
     MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
 })
 
@@ -83,7 +85,20 @@ Tabs.Genaral:AddButton({
     })
 
 
+Options.PlayerSelect = Tabs.Player:AddDropdown("PlayerSelect", {
+    Title = "Select Player",
+    Values = {},
+    Multi = false,
+    Default = "",
+    Callback = function(Value)
+        selectedPlayer = Value
+    end
+})
 
+Tabs.Player:AddButton({
+    Title = "Refresh Player List",
+    Callback = UpdatePlayerList
+})
 
     Tabs.Settings:AddButton({
         Title = "rejoin server",
@@ -125,7 +140,32 @@ Tabs.Genaral:AddButton({
     })
     
     
-    
+    Players.PlayerAdded:Connect(function(player)
+    if player ~= Player then
+        table.insert(currentPlayerList, player.Name)
+        Options.PlayerSelect:SetValues(currentPlayerList)
+        Fluent:Notify({
+            Title = "Player Joined",
+            Content = player.Name .. " joined!",
+            Duration = 3
+        })
+    end
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+    for i, name in ipairs(currentPlayerList) do
+        if name == player.Name then
+            table.remove(currentPlayerList, i)
+            Options.PlayerSelect:SetValues(currentPlayerList)
+            Fluent:Notify({
+                Title = "Player Left",
+                Content = player.Name .. " left!",
+                Duration = 3
+            })
+            break
+        end
+    end
+end)
     
     
 
