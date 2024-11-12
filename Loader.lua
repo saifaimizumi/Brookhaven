@@ -125,32 +125,7 @@ Tabs.Genaral:AddButton({
     })
     
     
-    Players.PlayerAdded:Connect(function(player)
-    if player ~= Player then
-        table.insert(currentPlayerList, player.Name)
-        Options.PlayerSelect:SetValues(currentPlayerList)
-        Fluent:Notify({
-            Title = "Player Joined",
-            Content = player.Name .. " joined!",
-            Duration = 3
-        })
-    end
-end)
-
-Players.PlayerRemoving:Connect(function(player)
-    for i, name in ipairs(currentPlayerList) do
-        if name == player.Name then
-            table.remove(currentPlayerList, i)
-            Options.PlayerSelect:SetValues(currentPlayerList)
-            Fluent:Notify({
-                Title = "Player Left",
-                Content = player.Name .. " left!",
-                Duration = 3
-            })
-            break
-        end
-    end
-end)
+    
     
     
 
