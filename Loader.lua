@@ -1,11 +1,5 @@
 --lyxme Hub | Brookhaven
---Players
-players = {}
- 
-for i,v in pairs(game:GetService("Players"):GetChildren()) do
-   table.insert(players,v.Name)
-end
- 
+
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -88,24 +82,7 @@ Tabs.Genaral:AddButton({
         end
     })
 
-local Dropdown = Tabs.Players:AddDropdown("Dropdown", {
-    Title = "Select Players", players,
-    Values = {""},
-    Multi = false,
-    Default = 1,
-})
 
-Dropdown:OnChanged(function(Value)
-   Select = Value
-end)
-
-Tabs.Players:AddButton({
-    Title = "Teleport to Players",
-    Description = "",
-    Callback = function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame(Dropdown.Value)
-    end
-})
 
 
     Tabs.Settings:AddButton({
